@@ -17,7 +17,6 @@ public class ParkingFloor {
     public ParkingSpot getFreeSpot(VehicleType type){
         for(ParkingSpot spot: spots){
             if(spot.isFree() && spot.getVehicleType() == type){
-                spot.setOccupied();
                 return spot;
             }
         }

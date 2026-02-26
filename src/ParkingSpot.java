@@ -18,4 +18,8 @@ public class ParkingSpot {
     public void setOccupied(){
         this.isFree = false;
     }
+
+    public void setFree(){
+        this.isFree = true;
+    }
 }
