@@ -1,6 +1,6 @@
 public class Vehicle {
-    String vehicleNo;
-    VehicleType vehicleType;
+    private String vehicleNo;
+    private VehicleType vehicleType;
 
     public VehicleType getVehicleType(){
         return vehicleType;

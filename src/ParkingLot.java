@@ -6,12 +6,11 @@ public class ParkingLot {
 
     private List<ParkingFloor> floors;
 
-
     public Ticket parkVehicle(Vehicle vehicle){
         for(ParkingFloor floor: floors){
             ParkingSpot spot= floor.getFreeSpot(vehicle.getVehicleType());
             if(spot!=null){
-                spot.setOccupied();
+                spot.park(vehicle);
                 Ticket ticket = new Ticket(vehicle, spot);
                 return ticket;
             }
@@ -22,7 +21,7 @@ public class ParkingLot {
     public Boolean unPark(Ticket ticket){
         ParkingSpot spot = ticket.getParkingSpot();
         if(!spot.isFree()){
-            spot.setFree();
+            spot.unPark();
             LocalDateTime leavingTime = LocalDateTime.now();
             LocalDateTime arrivedAt = ticket.getTime();
 

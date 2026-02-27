@@ -1,9 +1,16 @@
 public class ParkingSpot {
-    int spotId;
-    VehicleType vehicleType;
-    Boolean isFree;
+    private int spotId;
+    private VehicleType vehicleType;
+    private boolean isFree;
+    private Vehicle parkedVehicle;
 
-    public Boolean isFree(){
+    public ParkingSpot(int spotId, VehicleType vehicleType){
+        this.spotId = spotId;
+        this.vehicleType = vehicleType;
+        this.isFree =true;
+    }
+
+    public boolean isFree(){
         return isFree;
     }
 
@@ -15,11 +22,13 @@ public class ParkingSpot {
         return spotId;
     }
 
-    public void setOccupied(){
-        this.isFree = false;
+    public void park(Vehicle vehicle){
+        this.parkedVehicle = vehicle;
+        this.isFree = true;
     }
 
-    public void setFree(){
-        this.isFree = true;
+    public void unPark(){
+        this.parkedVehicle = null;
+        this.isFree = false;
     }
 }

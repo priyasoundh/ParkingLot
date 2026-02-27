@@ -3,9 +3,9 @@ import java.time.LocalDateTime;
 
 public class Ticket {
 
-    Vehicle vehicle;
-    ParkingSpot parkingSpot;
-    LocalDateTime time;
+    private Vehicle vehicle;
+    private ParkingSpot parkingSpot;
+    private LocalDateTime time;
 
     public Ticket(Vehicle vehicle, ParkingSpot parkingSpot){
         this.vehicle = vehicle;
