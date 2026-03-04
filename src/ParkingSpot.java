@@ -24,11 +24,11 @@ public class ParkingSpot {
 
     public void park(Vehicle vehicle){
         this.parkedVehicle = vehicle;
-        this.isFree = true;
+        this.isFree = false;
     }
 
-    public void unPark(){
+    public void unpark(){
         this.parkedVehicle = null;
-        this.isFree = false;
+        this.isFree = true;
     }
 }
