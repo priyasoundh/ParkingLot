@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -8,16 +7,43 @@ public class Main {
 
         List<ParkingSpot> spots = new ArrayList<>();
 
-        spots.add(new ParkingSpot(1, VehicleType.CAR));
-        spots.add(new ParkingSpot(2, VehicleType.CAR));
-        spots.add(new ParkingSpot(3, VehicleType.BIKE));
+        ParkingSpot spot1 = new ParkingSpot(1, VehicleType.CAR);
+        ParkingSpot spot2 = new ParkingSpot(2, VehicleType.CAR);
+        ParkingSpot spot3 = new ParkingSpot(3, VehicleType.CAR);
+        ParkingSpot spot4 = new ParkingSpot(4, VehicleType.BIKE);
+        ParkingSpot spot5 = new ParkingSpot(5, VehicleType.BIKE);
+
+        spots.add(spot1);
+        spots.add(spot2);
+        spots.add(spot4);
 
         ParkingFloor floor1 = new ParkingFloor(1, spots);
 
+        List<ParkingSpot> spots1 = new ArrayList<>();
+
+        spots1.add(spot3);
+        spots1.add(spot5);
+        ParkingFloor floor2 = new ParkingFloor(2, spots1);
+
         List<ParkingFloor> floors = new ArrayList<>();
         floors.add(floor1);
+        floors.add(floor2);
 
-        ParkingLot parkingLot = new ParkingLot(floors);
+        Map<VehicleType, Queue<ParkingSpot>> availableSpots = new HashMap<>();
+        Queue<ParkingSpot> parkingSpots = new LinkedList<>();
+        parkingSpots.offer(spot1);
+        parkingSpots.offer(spot2);
+        parkingSpots.offer(spot3);
+
+        availableSpots.put(VehicleType.CAR, parkingSpots);
+
+        Queue<ParkingSpot> parkingSpots2 = new LinkedList<>();
+        parkingSpots2.offer(spot4);
+        parkingSpots2.offer(spot5);
+
+        availableSpots.put(VehicleType.BIKE, parkingSpots2);
+
+        ParkingLot parkingLot = new ParkingLot(availableSpots, floors);
 
         Vehicle car1 = new Vehicle("TN01AB1234", VehicleType.CAR);
 
